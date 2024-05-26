@@ -1,9 +1,8 @@
-﻿using Newtonsoft.Json;
-using System.Linq.Expressions;
-using UserApp.Service.Exceptions;
-using UserApp.Service.Configurations;
-using EduTrack.Service.Configurations;
+﻿using EduTrack.Service.Configurations;
+using EduTrack.Service.Exceptions;
 using EduTrack.Service.Helpers;
+using Newtonsoft.Json;
+using System.Linq.Expressions;
 
 namespace EduTrack.Service.Extensions;
 

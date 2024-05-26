@@ -13,9 +13,11 @@
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="X.PagedList" Version="8.4.7" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EduTrack.Data\EduTrack.Data.csproj" />
     <ProjectReference Include="..\EduTrack.Domain\EduTrack.Domain.csproj" />
   </ItemGroup>
 
