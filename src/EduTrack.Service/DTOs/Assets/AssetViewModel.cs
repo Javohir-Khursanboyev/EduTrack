@@ -1,6 +1,4 @@
-﻿using EduTrack.Domain.Entities;
-
-namespace EduTrack.Service.DTOs.Assets;
+﻿namespace EduTrack.Service.DTOs.Assets;
 
 public class AssetViewModel
 {

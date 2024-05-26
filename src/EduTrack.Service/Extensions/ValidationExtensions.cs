@@ -1,6 +1,6 @@
-﻿using FluentValidation;
+﻿using EduTrack.Service.Exceptions;
+using FluentValidation;
 using FluentValidation.Results;
-using UserApp.Service.Exceptions;
 
 namespace EduTrack.Service.Extensions;
 

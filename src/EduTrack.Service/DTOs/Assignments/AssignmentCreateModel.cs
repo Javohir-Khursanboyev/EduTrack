@@ -1,6 +1,4 @@
-﻿using EduTrack.Domain.Entities;
-
-namespace EduTrack.Service.DTOs.Assignments;
+﻿namespace EduTrack.Service.DTOs.Assignments;
 
 public class AssignmentCreateModel
 {

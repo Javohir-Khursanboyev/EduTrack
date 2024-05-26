@@ -12,6 +12,6 @@ public class Assignment : Auditable
     public long? AssetId { get; set; }
     public Asset Asset { get; set; }
     public long GroupId { get; set; }
-    public Group Group { get; set; }    
+    public Group Group { get; set; }
     public IEnumerable<AssignmentMark> AssignmentMarks { get; set; }
 }

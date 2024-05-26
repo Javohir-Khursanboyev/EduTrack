@@ -1,5 +1,4 @@
-﻿using EduTrack.Domain.Entities;
-using EduTrack.Domain.Enums;
+﻿using EduTrack.Domain.Enums;
 using Microsoft.AspNetCore.Http;
 
 namespace EduTrack.Service.DTOs.Assets;
