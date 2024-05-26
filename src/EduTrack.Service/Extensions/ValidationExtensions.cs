@@ -2,7 +2,7 @@
 using FluentValidation.Results;
 using UserApp.Service.Exceptions;
 
-namespace UserApp.Service.Extensions;
+namespace EduTrack.Service.Extensions;
 
 public static class ValidationExtensions
 {

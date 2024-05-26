@@ -1,4 +1,4 @@
-﻿namespace UserApp.Service.Exceptions;
+﻿namespace EduTrack.Service.Exceptions;
 
 public class AlreadyExistException : Exception
 {

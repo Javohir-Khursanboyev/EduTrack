@@ -1,7 +1,7 @@
-﻿using Arcana.DataAccess.Repositories;
+﻿using EduTrack.Data.Repositories;
 using EduTrack.Domain.Entities;
 
-namespace Arcana.DataAccess.UnitOfWorks;
+namespace EduTrack.Data.UnitOfWorks;
 
 public interface IUnitOfWork : IDisposable
 {

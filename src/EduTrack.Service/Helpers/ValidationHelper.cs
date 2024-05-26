@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.Text.RegularExpressions;
 
-namespace UserApp.Service.Helpers;
+namespace EduTrack.Service.Helpers;
 
 public static class ValidationHelper
 {
     public static bool IsPasswordHard(string password)
     {
         // Check if the password is null
-        if(password is  null) return false;
+        if (password is null) return false;
 
         // Check if the password is at least 8 characters long
         if (password.Length < 8) return false;
@@ -30,7 +30,7 @@ public static class ValidationHelper
 
     public static bool IsEmailValid(string email)
     {
-        if(email is null) return false;
+        if (email is null) return false;
 
         string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
         return Regex.IsMatch(email, pattern);

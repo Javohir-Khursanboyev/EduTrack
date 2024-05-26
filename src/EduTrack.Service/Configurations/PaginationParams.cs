@@ -1,15 +1,15 @@
-﻿using UserApp.Service.Helpers;
+﻿using EduTrack.Service.Helpers;
 
-namespace UserApp.Service.Configurations;
+namespace EduTrack.Service.Configurations;
 
 public class PaginationParams
 {
     public PaginationParams()
     {
         PageIndex = EnvironmentHelper.DefaultPageIndex;
-        PageSize =  EnvironmentHelper.DefaultPageSize;
+        PageSize = EnvironmentHelper.DefaultPageSize;
     }
 
-    public int PageIndex { get; set; } 
-    public int PageSize { get; set; } 
+    public int PageIndex { get; set; }
+    public int PageSize { get; set; }
 }

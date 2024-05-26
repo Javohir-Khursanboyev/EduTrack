@@ -1,7 +1,7 @@
 ﻿using EduTrack.Domain.Commons;
-using UserApp.Service.Helpers;
+using EduTrack.Service.Helpers;
 
-namespace UserApp.Service.Extensions;
+namespace EduTrack.Service.Extensions;
 
 public static class AuditableExtension
 {

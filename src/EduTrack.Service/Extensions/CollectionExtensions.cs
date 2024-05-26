@@ -1,10 +1,11 @@
 ﻿using Newtonsoft.Json;
-using UserApp.Service.Helpers;
 using System.Linq.Expressions;
 using UserApp.Service.Exceptions;
 using UserApp.Service.Configurations;
+using EduTrack.Service.Configurations;
+using EduTrack.Service.Helpers;
 
-namespace UserApp.Service.Extensions;
+namespace EduTrack.Service.Extensions;
 
 public static class CollectionExtensions
 {

@@ -1,4 +1,4 @@
-﻿namespace UserApp.Service.Configurations;
+﻿namespace EduTrack.Service.Configurations;
 
 public class PaginationMetaData
 {

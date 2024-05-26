@@ -1,7 +1,7 @@
 ﻿using EduTrack.Domain.Enums;
 using Microsoft.AspNetCore.Http;
 
-namespace UserApp.Service.Helpers;
+namespace EduTrack.Service.Helpers;
 
 public static class FileHelper
 {

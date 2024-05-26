@@ -1,4 +1,4 @@
-﻿namespace UserApp.Service.Helpers;
+﻿namespace EduTrack.Service.Helpers;
 
 public static class PasswordHasher
 {

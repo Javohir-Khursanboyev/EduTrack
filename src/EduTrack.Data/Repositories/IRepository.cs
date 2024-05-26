@@ -1,7 +1,7 @@
 ﻿using EduTrack.Domain.Commons;
 using System.Linq.Expressions;
 
-namespace Arcana.DataAccess.Repositories;
+namespace EduTrack.Data.Repositories;
 
 public interface IRepository<T> where T : Auditable
 {
