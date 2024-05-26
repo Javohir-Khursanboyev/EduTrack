@@ -3,7 +3,7 @@ using EduTrack.Domain.Commons;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace Arcana.DataAccess.Repositories;
+namespace EduTrack.Data.Repositories;
 
 public class Repository<T> : IRepository<T> where T : Auditable
 {
@@ -12,7 +12,7 @@ public class Repository<T> : IRepository<T> where T : Auditable
     public Repository(AppDbContext context)
     {
         this.context = context;
-        this.set = context.Set<T>();
+        set = context.Set<T>();
     }
 
     public async ValueTask<T> InsertAsync(T entity)

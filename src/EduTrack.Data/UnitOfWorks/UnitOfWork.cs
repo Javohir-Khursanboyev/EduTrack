@@ -1,14 +1,14 @@
-﻿using Arcana.DataAccess.Repositories;
-using EduTrack.Data.DbContexts;
+﻿using EduTrack.Data.DbContexts;
+using EduTrack.Data.Repositories;
 using EduTrack.Domain.Entities;
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace Arcana.DataAccess.UnitOfWorks;
+namespace EduTrack.Data.UnitOfWorks;
 
 public class UnitOfWork : IUnitOfWork
 {
     private readonly AppDbContext context;
-   
+
     private IDbContextTransaction transaction;
 
     public IRepository<Student> Students { get; }
@@ -52,7 +52,7 @@ public class UnitOfWork : IUnitOfWork
 
     public async ValueTask BeginTransactionAsync()
     {
-        transaction = await this.context.Database.BeginTransactionAsync();
+        transaction = await context.Database.BeginTransactionAsync();
     }
 
     public async ValueTask CommitTransactionAsync()
