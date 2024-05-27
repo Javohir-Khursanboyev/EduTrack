@@ -26,4 +26,17 @@ public class TeachersController(ITeacherService teacherService) : Controller
         await teacherService.CreateAsync(createModel);
         return RedirectToAction("Index");
     }
+
+    public async ValueTask<IActionResult> Update(long  id)
+    {
+        var teacher = await teacherService.GetByIdAsync(id);
+        return View(teacher);
+    }
+
+    [HttpPost]
+    public async ValueTask<IActionResult> Update(long id, TeacherUpdateModel updateModel)
+    {
+        await teacherService.UpdateAsync(id, updateModel);
+        return RedirectToAction("Index");
+    }
 }
