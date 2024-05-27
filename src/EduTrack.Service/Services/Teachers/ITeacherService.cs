@@ -10,5 +10,5 @@ public interface ITeacherService
     ValueTask<TeacherViewModel> UpdateAsync(long id, TeacherUpdateModel updateModel);
     ValueTask<bool> DeleteAsync(long id);
     ValueTask<TeacherViewModel> GetByIdAsync(long id);
-    ValueTask<IPagedList<TeacherViewModel>> GetAllAsync(int? page, Filter filter, string search = null);
+    ValueTask<IPagedList<TeacherViewModel>> GetAllAsync(int? page, string search = null);
 }

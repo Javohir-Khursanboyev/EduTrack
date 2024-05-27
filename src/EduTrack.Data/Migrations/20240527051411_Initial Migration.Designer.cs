@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EduTrack.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240526115230_Initial Migration")]
+    [Migration("20240527051411_Initial Migration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -26,16 +26,16 @@ namespace EduTrack.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<long>("CreateByUserId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("DeletedAt")
+                    b.Property<long>("CreatedByUserId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("TEXT");
 
-                    b.Property<long>("DeletedByUserId")
+                    b.Property<long?>("DeletedByUserId")
                         .HasColumnType("INTEGER");
 
                     b.Property<bool>("IsDeleted")
@@ -47,11 +47,11 @@ namespace EduTrack.Data.Migrations
                     b.Property<string>("Path")
                         .HasColumnType("TEXT");
 
-                    b.Property<long>("UpdateByUserId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("TEXT");
+
+                    b.Property<long?>("UpdatedByUserId")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
@@ -70,19 +70,19 @@ namespace EduTrack.Data.Migrations
                     b.Property<long>("Coin")
                         .HasColumnType("INTEGER");
 
-                    b.Property<long>("CreateByUserId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
+
+                    b.Property<long>("CreatedByUserId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("Dedline")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("DeletedAt")
+                    b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("TEXT");
 
-                    b.Property<long>("DeletedByUserId")
+                    b.Property<long?>("DeletedByUserId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Description")
@@ -100,11 +100,11 @@ namespace EduTrack.Data.Migrations
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("TEXT");
 
-                    b.Property<long>("UpdateByUserId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("TEXT");
+
+                    b.Property<long?>("UpdatedByUserId")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
@@ -130,16 +130,16 @@ namespace EduTrack.Data.Migrations
                     b.Property<string>("Comment")
                         .HasColumnType("TEXT");
 
-                    b.Property<long>("CreateByUserId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("DeletedAt")
+                    b.Property<long>("CreatedByUserId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("TEXT");
 
-                    b.Property<long>("DeletedByUserId")
+                    b.Property<long?>("DeletedByUserId")
                         .HasColumnType("INTEGER");
 
                     b.Property<bool>("IsDeleted")
@@ -148,11 +148,11 @@ namespace EduTrack.Data.Migrations
                     b.Property<long>("StudentId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<long>("UpdateByUserId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("TEXT");
+
+                    b.Property<long?>("UpdatedByUserId")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
@@ -169,16 +169,16 @@ namespace EduTrack.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<long>("CreateByUserId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("DeletedAt")
+                    b.Property<long>("CreatedByUserId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("TEXT");
 
-                    b.Property<long>("DeletedByUserId")
+                    b.Property<long?>("DeletedByUserId")
                         .HasColumnType("INTEGER");
 
                     b.Property<long?>("GroupId")
@@ -193,11 +193,11 @@ namespace EduTrack.Data.Migrations
                     b.Property<long>("StudentId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<long>("UpdateByUserId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("TEXT");
+
+                    b.Property<long?>("UpdatedByUserId")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
@@ -216,16 +216,16 @@ namespace EduTrack.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<long>("CreateByUserId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("DeletedAt")
+                    b.Property<long>("CreatedByUserId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("TEXT");
 
-                    b.Property<long>("DeletedByUserId")
+                    b.Property<long?>("DeletedByUserId")
                         .HasColumnType("INTEGER");
 
                     b.Property<bool>("IsDeleted")
@@ -237,11 +237,11 @@ namespace EduTrack.Data.Migrations
                     b.Property<long>("TeacherId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<long>("UpdateByUserId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("TEXT");
+
+                    b.Property<long?>("UpdatedByUserId")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
@@ -256,19 +256,19 @@ namespace EduTrack.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<long>("CreateByUserId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
+
+                    b.Property<long>("CreatedByUserId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("DeletedAt")
+                    b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("TEXT");
 
-                    b.Property<long>("DeletedByUserId")
+                    b.Property<long?>("DeletedByUserId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Description")
@@ -283,11 +283,11 @@ namespace EduTrack.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
-                    b.Property<long>("UpdateByUserId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("TEXT");
+
+                    b.Property<long?>("UpdatedByUserId")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
@@ -305,16 +305,16 @@ namespace EduTrack.Data.Migrations
                     b.Property<long>("Coins")
                         .HasColumnType("INTEGER");
 
-                    b.Property<long>("CreateByUserId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("DeletedAt")
+                    b.Property<long>("CreatedByUserId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("TEXT");
 
-                    b.Property<long>("DeletedByUserId")
+                    b.Property<long?>("DeletedByUserId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("FirstName")
@@ -335,11 +335,11 @@ namespace EduTrack.Data.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("TEXT");
 
-                    b.Property<long>("UpdateByUserId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("TEXT");
+
+                    b.Property<long?>("UpdatedByUserId")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
@@ -354,16 +354,16 @@ namespace EduTrack.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<long>("CreateByUserId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("DeletedAt")
+                    b.Property<long>("CreatedByUserId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("TEXT");
 
-                    b.Property<long>("DeletedByUserId")
+                    b.Property<long?>("DeletedByUserId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Email")
@@ -381,11 +381,11 @@ namespace EduTrack.Data.Migrations
                     b.Property<string>("PasswordHash")
                         .HasColumnType("TEXT");
 
-                    b.Property<long>("UpdateByUserId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("TEXT");
+
+                    b.Property<long?>("UpdatedByUserId")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -19,11 +20,11 @@ namespace EduTrack.Data.Migrations
                     Name = table.Column<string>(type: "TEXT", nullable: true),
                     Path = table.Column<string>(type: "TEXT", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    CreateByUserId = table.Column<long>(type: "INTEGER", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    UpdateByUserId = table.Column<long>(type: "INTEGER", nullable: false),
-                    DeletedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    DeletedByUserId = table.Column<long>(type: "INTEGER", nullable: false),
+                    CreatedByUserId = table.Column<long>(type: "INTEGER", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    UpdatedByUserId = table.Column<long>(type: "INTEGER", nullable: true),
+                    DeletedAt = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    DeletedByUserId = table.Column<long>(type: "INTEGER", nullable: true),
                     IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -42,11 +43,11 @@ namespace EduTrack.Data.Migrations
                     Email = table.Column<string>(type: "TEXT", nullable: true),
                     PasswordHash = table.Column<string>(type: "TEXT", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    CreateByUserId = table.Column<long>(type: "INTEGER", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    UpdateByUserId = table.Column<long>(type: "INTEGER", nullable: false),
-                    DeletedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    DeletedByUserId = table.Column<long>(type: "INTEGER", nullable: false),
+                    CreatedByUserId = table.Column<long>(type: "INTEGER", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    UpdatedByUserId = table.Column<long>(type: "INTEGER", nullable: true),
+                    DeletedAt = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    DeletedByUserId = table.Column<long>(type: "INTEGER", nullable: true),
                     IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -63,11 +64,11 @@ namespace EduTrack.Data.Migrations
                     Name = table.Column<string>(type: "TEXT", nullable: true),
                     TeacherId = table.Column<long>(type: "INTEGER", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    CreateByUserId = table.Column<long>(type: "INTEGER", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    UpdateByUserId = table.Column<long>(type: "INTEGER", nullable: false),
-                    DeletedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    DeletedByUserId = table.Column<long>(type: "INTEGER", nullable: false),
+                    CreatedByUserId = table.Column<long>(type: "INTEGER", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    UpdatedByUserId = table.Column<long>(type: "INTEGER", nullable: true),
+                    DeletedAt = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    DeletedByUserId = table.Column<long>(type: "INTEGER", nullable: true),
                     IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -95,11 +96,11 @@ namespace EduTrack.Data.Migrations
                     AssetId = table.Column<long>(type: "INTEGER", nullable: true),
                     GroupId = table.Column<long>(type: "INTEGER", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    CreateByUserId = table.Column<long>(type: "INTEGER", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    UpdateByUserId = table.Column<long>(type: "INTEGER", nullable: false),
-                    DeletedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    DeletedByUserId = table.Column<long>(type: "INTEGER", nullable: false),
+                    CreatedByUserId = table.Column<long>(type: "INTEGER", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    UpdatedByUserId = table.Column<long>(type: "INTEGER", nullable: true),
+                    DeletedAt = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    DeletedByUserId = table.Column<long>(type: "INTEGER", nullable: true),
                     IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -129,11 +130,11 @@ namespace EduTrack.Data.Migrations
                     Date = table.Column<DateTime>(type: "TEXT", nullable: false),
                     GroupId = table.Column<long>(type: "INTEGER", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    CreateByUserId = table.Column<long>(type: "INTEGER", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    UpdateByUserId = table.Column<long>(type: "INTEGER", nullable: false),
-                    DeletedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    DeletedByUserId = table.Column<long>(type: "INTEGER", nullable: false),
+                    CreatedByUserId = table.Column<long>(type: "INTEGER", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    UpdatedByUserId = table.Column<long>(type: "INTEGER", nullable: true),
+                    DeletedAt = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    DeletedByUserId = table.Column<long>(type: "INTEGER", nullable: true),
                     IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -160,11 +161,11 @@ namespace EduTrack.Data.Migrations
                     Coins = table.Column<long>(type: "INTEGER", nullable: false),
                     GroupId = table.Column<long>(type: "INTEGER", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    CreateByUserId = table.Column<long>(type: "INTEGER", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    UpdateByUserId = table.Column<long>(type: "INTEGER", nullable: false),
-                    DeletedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    DeletedByUserId = table.Column<long>(type: "INTEGER", nullable: false),
+                    CreatedByUserId = table.Column<long>(type: "INTEGER", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    UpdatedByUserId = table.Column<long>(type: "INTEGER", nullable: true),
+                    DeletedAt = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    DeletedByUserId = table.Column<long>(type: "INTEGER", nullable: true),
                     IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -189,11 +190,11 @@ namespace EduTrack.Data.Migrations
                     Coin = table.Column<long>(type: "INTEGER", nullable: false),
                     Comment = table.Column<string>(type: "TEXT", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    CreateByUserId = table.Column<long>(type: "INTEGER", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    UpdateByUserId = table.Column<long>(type: "INTEGER", nullable: false),
-                    DeletedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    DeletedByUserId = table.Column<long>(type: "INTEGER", nullable: false),
+                    CreatedByUserId = table.Column<long>(type: "INTEGER", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    UpdatedByUserId = table.Column<long>(type: "INTEGER", nullable: true),
+                    DeletedAt = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    DeletedByUserId = table.Column<long>(type: "INTEGER", nullable: true),
                     IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -223,11 +224,11 @@ namespace EduTrack.Data.Migrations
                     StudentId = table.Column<long>(type: "INTEGER", nullable: false),
                     GroupId = table.Column<long>(type: "INTEGER", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    CreateByUserId = table.Column<long>(type: "INTEGER", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    UpdateByUserId = table.Column<long>(type: "INTEGER", nullable: false),
-                    DeletedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    DeletedByUserId = table.Column<long>(type: "INTEGER", nullable: false),
+                    CreatedByUserId = table.Column<long>(type: "INTEGER", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    UpdatedByUserId = table.Column<long>(type: "INTEGER", nullable: true),
+                    DeletedAt = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    DeletedByUserId = table.Column<long>(type: "INTEGER", nullable: true),
                     IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
