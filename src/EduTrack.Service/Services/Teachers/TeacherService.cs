@@ -62,23 +62,23 @@ public class TeacherService
 
     public async ValueTask<TeacherViewModel> GetByIdAsync(long id)
     {
-        var existTeacher = await unitOfWork.Teachers.SelectAsync(t => t.Id == id, ["Group"])
+        var existTeacher = await unitOfWork.Teachers.SelectAsync(t => t.Id == id, ["Groups"])
            ?? throw new NotFoundException($"Teacher is not found");
 
         return mapper.Map<TeacherViewModel>(existTeacher);
     }
 
-    public async ValueTask<IPagedList<TeacherViewModel>> GetAllAsync(int? page, Filter filter, string search = null)
+    public async ValueTask<IPagedList<TeacherViewModel>> GetAllAsync(int? page, string search = null)
     {
         var teachers = unitOfWork.Teachers
-           .SelectAsQueryable(includes: ["Group"], isTracked: false)
-           .OrderBy(filter);
+           .SelectAsQueryable(includes: ["Groups"], isTracked: false);
 
         if (!string.IsNullOrWhiteSpace(search))
             teachers = teachers.Where(t =>
                 t.FirstName.ToLower().Contains(search.ToLower()) ||
                 t.LastName.Contains(search.ToLower()));
 
-        return await(mapper.Map<IEnumerable<TeacherViewModel>>(teachers)).ToPagedListAsync(page ?? 1, 5);
+        var mappedTeachers = mapper.Map<IEnumerable<TeacherViewModel>>(teachers.ToList());
+        return await mappedTeachers.ToPagedListAsync(page ?? 1, 5);
     }
 }
