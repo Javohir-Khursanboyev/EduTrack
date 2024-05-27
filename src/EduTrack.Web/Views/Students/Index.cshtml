@@ -1,0 +1,81 @@
+﻿@using EduTrack.Web.Models.Teachers
+@using X.PagedList.Mvc.Core
+
+@model TeacherListModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Teachers</h1>
+
+<div class="row">
+    <div class="col-6">
+        <a class="btn btn-primary btn-rounded" asp-controller="Teachers" asp-action="Create">Add Teacher</a>
+    </div>
+    <div class="col-6 d-flex justify-content-end">
+        <form asp-action="Index" method="get" class="w-100">
+            <div class="row w-100">
+                <div class="col-8">
+                    <input type="text" class="form-control rounded" placeholder="Enter" asp-for="Search" />
+                </div>
+                <div class="col-4">
+                    <button type="submit" class="btn btn-primary btn-rounded">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<table class="table table-hover mt-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var teacher in Model.Teachers)
+        {
+            <tr>
+                <td>@Html.DisplayFor(model => teacher.Id)</td>
+                <td>@Html.DisplayFor(model => teacher.FirstName)</td>
+                <td>@Html.DisplayFor(model => teacher.LastName)</td>
+                <td>@Html.DisplayFor(model => teacher.Email)</td>
+                <td>
+                    <a class="nav-link dropdown-toggle"
+                       role="button"
+                       data-mdb-toggle="dropdown"
+                       aria-expanded="false">
+                        Choose
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="ddlWarehouse">
+                        <li>
+                            <a class="dropdown-item" asp-action="GetById" asp-controller="Teachers" asp-route-id="@teacher.Id">Detail</a>
+                            <a class="dropdown-item" asp-action="Update" asp-controller="Teachers" asp-route-id="@teacher.Id">Edit</a>
+                            <a class="dropdown-item" asp-action="Delete" asp-controller="Teachers" asp-route-id="@teacher.Id">Delete</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<div class="mb-7">
+    @Html.PagedListPager(Model.Teachers,
+            page => Url.Action("Index", new
+            {
+                page,
+                Search = Model.Search
+            }),
+            new X.PagedList.Web.Common.PagedListRenderOptions
+    {
+        LiElementClasses = new string[] { "page-item" },
+        PageClasses = new string[] { "page-link" }
+    })
+</div>
