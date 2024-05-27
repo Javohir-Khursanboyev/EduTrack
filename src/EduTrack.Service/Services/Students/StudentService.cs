@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using EduTrack.Data.UnitOfWorks;
 using EduTrack.Domain.Entities;
-using EduTrack.Service.Configurations;
 using EduTrack.Service.DTOs.Students;
 using EduTrack.Service.Exceptions;
 using EduTrack.Service.Extensions;
@@ -67,17 +66,17 @@ public class StudentService
         return mapper.Map<StudentViewModel>(existStudent);
     }
 
-    public async ValueTask<IPagedList<StudentViewModel>> GetAllAsync(int? page, Filter filter, string search = null)
+    public async ValueTask<IPagedList<StudentViewModel>> GetAllAsync(int? page, string search = null)
     {
         var students = unitOfWork.Students
-            .SelectAsQueryable(includes: ["Group", "AssignmentMarks"], isTracked: false)
-            .OrderBy(filter);
+            .SelectAsQueryable(includes: ["Group", "AssignmentMarks"], isTracked: false);
 
         if(!string.IsNullOrWhiteSpace(search))
             students = students.Where(s => 
                 s.FirstName.ToLower().Contains(search.ToLower()) ||
                 s.LastName.Contains(search.ToLower()));
 
-        return await (mapper.Map<IEnumerable<StudentViewModel>>(students)).ToPagedListAsync(page ?? 1, 5);
+        var mappedStudents = mapper.Map<IEnumerable<StudentViewModel>>(students.ToList());
+        return await mappedStudents.ToPagedListAsync(page ?? 1, 5);
     }
 }

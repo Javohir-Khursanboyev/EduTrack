@@ -9,7 +9,8 @@ public static class ServiceCollectionExtension
 {
     public static void AddServices(this IServiceCollection services)
     {
-      services.AddScoped<IUnitOfWork, UnitOfWork>();
-      services.AddScoped<ITeacherService, TeacherService>();
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddScoped<ITeacherService, TeacherService>();
+        services.AddScoped<IStudentService, StudentService>();
     }
 }
