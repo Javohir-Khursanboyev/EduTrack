@@ -37,30 +37,40 @@ public class TeachersController(ITeacherService teacherService) : Controller
         catch (AlreadyExistException ex)
         {
             ModelState.AddModelError(string.Empty, ex.Message);
-            return View(createModel);
+            return View();
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            ModelState.AddModelError(string.Empty, "An unexpected error occurred. Please try again later.");
+            ModelState.AddModelError(string.Empty, ex.Message);
             // Log the exception (ex) here as needed.
-            return View(createModel);
+            return View();
         }
     }
 
     public async ValueTask<IActionResult> Update(long id)
     {
-        var teacher = await teacherService.GetByIdAsync(id);
-        if (teacher == null)
+        try
         {
-            return NotFound();
+            var teacher = await teacherService.GetByIdAsync(id);
+            var updateModel = new TeacherUpdateModel
+            {
+                FirstName = teacher.FirstName,
+                LastName = teacher.LastName,
+                Email = teacher.Email
+            };
+
+            return View(updateModel);
         }
-        var updateModel = new TeacherUpdateModel
+        catch(NotFoundException ex)
         {
-            FirstName = teacher.FirstName,
-            LastName = teacher.LastName,
-            Email = teacher.Email
-        };
-        return View(updateModel);
+            ModelState.AddModelError(string.Empty, ex.Message);
+            return View();
+        }
+        catch (Exception ex)
+        {
+            ModelState.AddModelError(string.Empty, ex.Message);
+            return View();
+        }
     }
 
     [HttpPost]
@@ -79,18 +89,37 @@ public class TeachersController(ITeacherService teacherService) : Controller
         catch (NotFoundException ex)
         {
             ModelState.AddModelError(string.Empty, ex.Message);
-            return View(updateModel);
+            return View();
         }
         catch (AlreadyExistException ex)
         {
             ModelState.AddModelError(string.Empty, ex.Message);
-            return View(updateModel);
+            return View();
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            ModelState.AddModelError(string.Empty, "An unexpected error occurred. Please try again later.");
+            ModelState.AddModelError(string.Empty, ex.Message);
             // Log the exception here as needed.
-            return View(updateModel);
+            return View();
+        }
+    }
+
+    public async ValueTask<IActionResult> Delete(long id)
+    {
+        try
+        {
+            await teacherService.DeleteAsync(id);
+            return RedirectToAction("Index");
+        }
+        catch (NotFoundException ex)
+        {
+            ModelState.AddModelError(string.Empty, ex.Message);
+            return View();
+        }
+        catch (Exception ex)
+        {
+            ModelState.AddModelError(string.Empty, ex.Message);
+            return View();
         }
     }
 }
