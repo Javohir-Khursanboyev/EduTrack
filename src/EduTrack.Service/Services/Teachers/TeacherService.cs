@@ -53,7 +53,6 @@ public class TeacherService
         var existTeacher = await unitOfWork.Teachers.SelectAsync(t => t.Id == id)
              ?? throw new NotFoundException($"Teacher is not found");
 
-        throw new NotFoundException("hd");
         existTeacher.Delete();
         await unitOfWork.Teachers.DeleteAsync(existTeacher);
         await unitOfWork.SaveAsync();
