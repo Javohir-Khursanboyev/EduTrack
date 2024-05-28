@@ -1,11 +1,14 @@
 ﻿@using EduTrack.Service.DTOs.Teachers
-@model TeacherViewModel
+@model TeacherUpdateModel
 
 <h1>Update Teacher</h1>
 <hr />
 
 <div class="row">
     <div class="col-md-4">
+        @* Display a summary of model errors *@
+        <div asp-validation-summary="All" class="text-danger"></div>
+
         <form asp-action="Update">
             <div class="form-group mb-3">
                 <label asp-for="FirstName" class="control-label"></label>
@@ -23,8 +26,15 @@
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div>
-                <button type="submit" class="btn btn-success" asp-action="Update"> Submit </button>
+                <button type="submit" class="btn btn-success"> Submit </button>
             </div>
         </form>
     </div>
 </div>
+
+@if (ViewData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger mt-3">
+        @ViewData["ErrorMessage"]
+    </div>
+}
