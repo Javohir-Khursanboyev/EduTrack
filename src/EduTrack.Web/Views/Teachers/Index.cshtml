@@ -104,7 +104,7 @@
         deleteLinks.forEach(function (link) {
             link.addEventListener('click', function () {
                 var reporterId = link.getAttribute('data-id');
-                var confirmDeleteUrl = '/Reporters/Delete/' + reporterId;
+                var confirmDeleteUrl = '/Teachers/Delete/' + reporterId;
                 confirmDeleteBtn.setAttribute('href', confirmDeleteUrl);
             });
         });
