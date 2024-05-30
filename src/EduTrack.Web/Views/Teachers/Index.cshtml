@@ -56,7 +56,7 @@
                         <li>
                             <a class="dropdown-item" asp-action="GetById" asp-controller="Teachers" asp-route-id="@teacher.Id">Detail</a>
                             <a class="dropdown-item" asp-action="Update" asp-controller="Teachers" asp-route-id="@teacher.Id">Edit</a>
-                            <a class="dropdown-item" asp-action="Delete" asp-controller="Teachers" asp-route-id="@teacher.Id">Delete</a>
+                            <a class="dropdown-item" data-mdb-toggle="modal" data-mdb-target="#showDeletePage" data-id="@teacher.Id">Delete</a>
                         </li>
                     </ul>
                 </td>
@@ -79,3 +79,34 @@
         PageClasses = new string[] { "page-link" }
     })
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="showDeletePage" tabindex="-1" aria-labelledby="showDeletePage" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete?</h5>
+                <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-footer">
+                <a id="confirmDeleteBtn" asp-controller="Teachers" asp-action="Delete" asp-route-id="" class="btn btn-danger" data-mdb-ripple-init>Confirm</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var deleteLinks = document.querySelectorAll('a[data-mdb-toggle="modal"][data-mdb-target="#showDeletePage"]');
+        var confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+
+        deleteLinks.forEach(function (link) {
+            link.addEventListener('click', function () {
+                var reporterId = link.getAttribute('data-id');
+                var confirmDeleteUrl = '/Teachers/Delete/' + reporterId;
+                confirmDeleteBtn.setAttribute('href', confirmDeleteUrl);
+            });
+        });
+    });
+</script>

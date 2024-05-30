@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EduTrack.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -42,6 +42,7 @@ namespace EduTrack.Data.Migrations
                     LastName = table.Column<string>(type: "TEXT", nullable: true),
                     Email = table.Column<string>(type: "TEXT", nullable: true),
                     PasswordHash = table.Column<string>(type: "TEXT", nullable: true),
+                    Role = table.Column<int>(type: "INTEGER", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
                     CreatedByUserId = table.Column<long>(type: "INTEGER", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "TEXT", nullable: true),
@@ -160,6 +161,7 @@ namespace EduTrack.Data.Migrations
                     PasswordHash = table.Column<string>(type: "TEXT", nullable: true),
                     Coins = table.Column<long>(type: "INTEGER", nullable: false),
                     GroupId = table.Column<long>(type: "INTEGER", nullable: false),
+                    Role = table.Column<int>(type: "INTEGER", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
                     CreatedByUserId = table.Column<long>(type: "INTEGER", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "TEXT", nullable: true),

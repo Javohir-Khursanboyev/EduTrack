@@ -1,6 +1,7 @@
 using EduTrack.Data.DbContexts;
 using EduTrack.Service.Mappers;
 using EduTrack.Web.Extensions;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,12 @@ builder.Services.AddDbContext<AppDbContext>(options
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddServices();
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+        .AddCookie(options =>
+        {
+            options.LoginPath = "/Accounts/Login"; // Bu yerda login sahifasining yo'nalishi ko'rsatilgan
+        });
 
 var app = builder.Build();
 
@@ -30,10 +37,11 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Teachers}/{action=Index}/{id?}");
+    pattern: "{controller=Accounts}/{action=Login}/{id?}");
 
 app.Run();
