@@ -2,10 +2,12 @@
 using EduTrack.Service.Exceptions;
 using EduTrack.Service.Services.Students;
 using EduTrack.Web.Models.Teachers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EduTrack.Web.Controllers;
 
+[Authorize]
 public class TeachersController(ITeacherService teacherService) : Controller
 {
     public async ValueTask<IActionResult> Index(int? page, string search = null)
